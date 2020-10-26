@@ -12,22 +12,22 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-  // useEffect(() => {
-  //   axios
-  //     .get(" https://pokeapi.co/api/v2/pokedex/kanto")
-  //     .then((res) => {
-  //       console.log(res);
-  //       setPokemon(res.data.pokemon_entries);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(" https://pokeapi.co/api/v2/pokedex/kanto")
+      .then((res) => {
+        console.log(res);
+        setPokemon(res.data.pokemon_entries);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <Character />
+      <Character pokemonList={pokemonList} />
     </div>
   );
 };

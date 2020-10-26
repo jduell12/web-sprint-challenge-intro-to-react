@@ -2,13 +2,15 @@ import React from "react";
 import Card from "./CharacterCard";
 
 const Character = (props) => {
-  //   const { pokemonList } = props;
+  const { pokemonList } = props;
 
   return (
     <div>
-      {/* {pokemonList.map((pokemon) => {
-        return pokemon.pokemon_species.name;
-      })} */}
+      {pokemonList
+        ? pokemonList.map((pokemon) => {
+            return <Card key={pokemon.entry_number} pokemon={pokemon} />;
+          })
+        : null}
       <Card />
     </div>
   );
